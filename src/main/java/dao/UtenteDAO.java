@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.UUID;
 
 public class UtenteDAO {
     private EntityManager em;
@@ -20,8 +21,8 @@ public class UtenteDAO {
         em.getTransaction().commit();
     }
 
-    public Utente findById(Long id) {
-        return em.find(Utente.class, id);
+    public Utente findById(String id) {
+        return em.find(Utente.class,UUID.fromString(id));
     }
 
     public List<Utente> findAll() {
