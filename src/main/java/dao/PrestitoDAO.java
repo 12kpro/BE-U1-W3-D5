@@ -48,7 +48,6 @@ public class PrestitoDAO {
     }
     public List<Prestito>  findExpired() {
         Query q = em.createQuery("SELECT p FROM Prestito p WHERE p.dataRestituzioneEffettiva < now()");
-        //q.setParameter("anno", a);
         return q.getResultList();
     }
 }

@@ -3,6 +3,7 @@ package dao;
 import entities.Utente;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -24,8 +25,8 @@ public class UtenteDAO {
     }
 
     public List<Utente> findAll() {
-        TypedQuery<Utente> query = em.createQuery("SELECT u FROM Utente u", Utente.class);
-        return query.getResultList();
+        Query q = em.createQuery("SELECT u FROM Utente u");
+        return q.getResultList();
     }
 
     public void update(Utente utente) {
